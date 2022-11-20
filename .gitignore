@@ -34,8 +34,6 @@ TwittFaceProject/.vs/TwittFaceProject/v16/Browse.VC.db
 TwittFaceProject/.vs/TwittFaceProject/v16/Browse.VC.db-shm
 TwittFaceProject/.vs/TwittFaceProject/v16/Browse.VC.db-wal
 TwittFaceProject/.vs/TwittFaceProject/v16/Browse.VC.opendb
-TwittFaceProject/TwittFaceProject.vcxproj.filters
-TwittFaceProject/TwittFaceProject.vcxproj.user
 TwittFaceProject/.vs/TwittFaceProject/v16/.suo
 TwittFaceProject/Debug/TwittFaceProject.exe.recipe
 TwittFaceProject/Debug/TwittFaceProject.ilk
@@ -51,3 +49,4 @@ TwittFaceProject/Debug/TwittFaceProject.tlog/TwittFaceProject.lastbuildstate
 TwittFaceProject/Debug/TwittFaceProject.vcxproj.FileListAbsolute.txt
 TwittFaceProject/Debug/vc142.idb
 TwittFaceProject/Debug/vc142.pdb
+TwittFaceProject/.vs/TwittFaceProject/v16/ipch/AutoPCH/1771a0442c9b4a17/MAIN.ipch
