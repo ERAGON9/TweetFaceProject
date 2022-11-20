@@ -30,3 +30,10 @@
 *.exe
 *.out
 *.app
+TwittFaceProject/.vs/TwittFaceProject/v16/Browse.VC.db
+TwittFaceProject/.vs/TwittFaceProject/v16/Browse.VC.db-shm
+TwittFaceProject/.vs/TwittFaceProject/v16/Browse.VC.db-wal
+TwittFaceProject/.vs/TwittFaceProject/v16/Browse.VC.opendb
+TwittFaceProject/TwittFaceProject.vcxproj
+TwittFaceProject/TwittFaceProject.vcxproj.filters
+TwittFaceProject/TwittFaceProject.vcxproj.user
