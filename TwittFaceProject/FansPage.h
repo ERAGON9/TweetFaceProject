@@ -4,15 +4,16 @@
 class FansPage
 {
 private:
-	const char* name;
+	char* name;
 	Friend** pArrFans;
 	Status* publishBoard;
 	int friendsCount;
 	int statusCount;
 
-
 public:
-
+	FansPage(const char* name);
+	FansPage(const FansPage& other);
+	~FansPage();
 };
 
 

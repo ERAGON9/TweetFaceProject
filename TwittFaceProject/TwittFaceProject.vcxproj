@@ -139,7 +139,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FansPage.cpp" />
+    <ClCompile Include="Friend.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Status.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FansPage.h" />
+    <ClInclude Include="Friend.h" />
+    <ClInclude Include="Status.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

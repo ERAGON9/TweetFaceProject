@@ -9,8 +9,8 @@ using namespace std;
 class Friend
 {
 private:
-	const char* name;
-	const Date bDay;
+	char* name;
+	Date bDay;
 	Status* publishBoard;
 	Friend** friends;
 	FansPage** pArrFansPages;
@@ -19,6 +19,10 @@ private:
 	int pagesCount;
 
 public:
+	Friend(const char* txt, Date d);
+	Friend(const Friend& other);
+	~Friend();
+
 
 };
 

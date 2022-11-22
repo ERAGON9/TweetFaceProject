@@ -18,12 +18,14 @@ typedef struct Time {
 class Status
 {
 private:
-	const Date date;
-	const Time time;
-	const char* text;
+	Date date;
+	Time time;
+	char* text;
 
 public:
-
+	Status(const char* txt, Date d, Time t);
+	Status(const Status& other);
+	~Status();
 
 
 };
