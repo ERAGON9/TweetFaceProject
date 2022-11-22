@@ -28,7 +28,6 @@ public:
 	//Status(const Status& other);
 	~Status();
 
-
 };
 
 
