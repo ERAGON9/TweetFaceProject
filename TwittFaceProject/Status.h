@@ -1,8 +1,6 @@
 #ifndef __STATUS_H
 #define __STATUS_H
 
-#pragma warning(disable: 4996)
-#include <string.h>
 
 typedef struct Date {
 	int day;
