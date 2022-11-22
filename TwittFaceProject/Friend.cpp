@@ -11,7 +11,7 @@ Friend::Friend(const char* n, Date d)
 	friendsCount = 0;
 	pagesCount = 0;
 }
-
+/*
 Friend::Friend(const Friend& other)
 {
 	name = new char[strlen(other.name) + 1];
@@ -23,7 +23,7 @@ Friend::Friend(const Friend& other)
 	friendsCount = other.friendsCount;
 	pagesCount = other.pagesCount;
 }
-
+*/
 Friend::~Friend()
 {
 	delete[]name;

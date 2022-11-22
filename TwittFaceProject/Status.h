@@ -1,14 +1,17 @@
 #ifndef __STATUS_H
 #define __STATUS_H
 
+#include <string.h>
 
-typedef struct Date {
+typedef struct Date 
+{
 	int day;
 	int month;
 	int year;
 } Date;
 
-typedef struct Time {
+typedef struct Time 
+{
 	int hours;
 	int minutes;
 } Time;
@@ -22,7 +25,7 @@ private:
 
 public:
 	Status(const char* txt, Date d, Time t);
-	Status(const Status& other);
+	//Status(const Status& other);
 	~Status();
 
 

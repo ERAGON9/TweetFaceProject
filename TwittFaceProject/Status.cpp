@@ -11,6 +11,7 @@ Status::Status(const char* txt, Date d, Time t)
 	time.minutes = t.minutes;
 }
 
+/*
 Status::Status(const Status& other)
 {
 	text = new char[strlen(other.text) + 1];
@@ -21,6 +22,7 @@ Status::Status(const Status& other)
 	time.hours = other.time.hours;
 	time.minutes = other.time.minutes;
 }
+*/
 
 Status::~Status() 
 {

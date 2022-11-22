@@ -8,8 +8,6 @@
 
 #include <iostream>
 using namespace std;
-#include <string.h>
-#include "Status.h"
 #include "FansPage.h"
 
 class Friend
@@ -22,13 +20,15 @@ private:
 	Friend** friends;
 
 	FansPage** pArrFansPages;
+	int friendsPysic;
 	int statusCount;
 	int friendsCount;
 	int pagesCount;
+	int statusPysic;
 
 public:
 	Friend(const char* txt, Date d);
-	Friend(const Friend& other);
+	//Friend(const Friend& other);
 	~Friend();
 
 
