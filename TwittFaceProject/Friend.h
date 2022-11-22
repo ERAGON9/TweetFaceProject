@@ -1,8 +1,14 @@
 #ifndef __FRIENDS_H
 #define __FRIENDS_H
 
+
+
+#pragma warning(disable: 4996)
+
+
 #include <iostream>
 using namespace std;
+#include <string.h>
 #include "Status.h"
 #include "FansPage.h"
 
@@ -12,7 +18,9 @@ private:
 	char* name;
 	Date bDay;
 	Status* publishBoard;
+
 	Friend** friends;
+
 	FansPage** pArrFansPages;
 	int statusCount;
 	int friendsCount;
