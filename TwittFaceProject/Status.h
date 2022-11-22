@@ -4,14 +4,22 @@
 #pragma warning(disable: 4996)
 #include <string.h>
 
+typedef struct Date {
+	int day;
+	int month;
+	int year;
+} Date;
+
+typedef struct Time {
+	int hours;
+	int minutes;
+} Time;
+
 class Status
 {
 private:
-	const int day;
-	const int month;
-	const int year;
-	const int hours;
-	const int minutes;
+	const Date date;
+	const Time time;
 	const char* text;
 
 public:

@@ -1,21 +1,22 @@
 #ifndef __FRIENDS_H
 #define __FRIENDS_H
 
-
 #include <iostream>
 using namespace std;
 #include "Status.h"
+#include "FansPage.h"
 
 class Friend
 {
 private:
 	const char* name;
-	const int day;
-	const int month;
-	const int year;
+	const Date bDay;
 	Status* publishBoard;
-	Friend* friends;
+	Friend** friends;
 	FansPage** pArrFansPages;
+	int statusCount;
+	int friendsCount;
+	int pagesCount;
 
 public:
 
