@@ -31,9 +31,10 @@ User::~User()
 	delete[]pArrFansPages;
 }
 
-
-void printTenLastStatusOfUsers() 
+void User::printTenLastStatusOfUsers()
 {
+	int i = 0;
+	while
 
 }
 

@@ -23,6 +23,6 @@ int main()
 	{
 		printMenu();
 
-
+		
 	} while (input != 12);
 }

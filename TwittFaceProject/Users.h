@@ -25,6 +25,7 @@ private:
 	int pagesCount;
 
 public:
+	User() = default;
 	User(const char* txt, Date d);
 	User(const User& other) = delete;
 	~User();

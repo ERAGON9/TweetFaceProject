@@ -21,6 +21,9 @@ FansPage::~FansPage()
 	delete[]name;
 
 	for (int i = 0; i < statusCount; i++) {
-		delete[]
+		delete[]publishBoard[i];
 	}
+
+	delete[]publishBoard;
+	delete[]pArrFans;
 }

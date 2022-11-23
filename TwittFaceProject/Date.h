@@ -8,6 +8,7 @@ private:
 	int month;
 	int year;
 public:
+	Date() = default;
 	Date(const int day, const int month, const int year) : day(day), month(month), year(year) {};
 	Date(const Date& other) = delete;
 	const int getDay() { return day; };
