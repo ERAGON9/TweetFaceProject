@@ -139,16 +139,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Date.cpp" />
     <ClCompile Include="FansPage.cpp" />
     <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="Time.cpp" />
     <ClCompile Include="TwittFace.cpp" />
     <ClCompile Include="Users.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Status.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Date.h" />
     <ClInclude Include="FansPage.h" />
     <ClInclude Include="Functions.h" />
+    <ClInclude Include="Time.h" />
     <ClInclude Include="TwittFace.h" />
     <ClInclude Include="Users.h" />
     <ClInclude Include="Status.h" />

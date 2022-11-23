@@ -4,6 +4,7 @@
 
 using namespace std;
 #include "FansPage.h"
+#include "Date.h"
 
 class User
 {
@@ -11,28 +12,26 @@ private:
 	char* name;
 	Date bDay;
 
-	Status* publishBoard;
+	Status** publishBoard;
 	int statusCount;
+	int statusPhysic;
 
 	User** friends;
-
-	FansPage** pArrFansPages;
-	Friend** friends;
-	int friendsPysic;
+	int friendsPhysic;
 	int friendsCount;
 
 	FansPage** pArrFansPages;
+	int pagesPhysic;
 	int pagesCount;
-	int statusPysic;
 
 public:
 	User(const char* txt, Date d);
 	User(const User& other) = delete;
 	~User();
 
-	void printTenLastStatusOfFriends() const;
-	void addFriend(Friend& _friend);
-	void printFansPages() const;
+	void printTenLastStatusOfUsers();
+	void addUser(User& _friend);
+	void printFansPages();
 
 };
 

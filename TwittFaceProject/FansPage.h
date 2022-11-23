@@ -15,7 +15,7 @@ private:
 	int friendsPysic;
 	int friendsCount;
 
-	Status* publishBoard;
+	Status** publishBoard;
 	int statusCount;
 	int statusPysic;
 
