@@ -8,6 +8,10 @@ using namespace std;
 
 const int maxName = 20;
 const int maxStatus = 500;
+/*
+Welcome to TwittFaceProject:
+A
+*/
 
 int main()
 {

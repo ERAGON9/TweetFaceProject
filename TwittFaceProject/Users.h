@@ -25,6 +25,9 @@ public:
 	User(const char* txt, Date d);
 	User(const User& other);
 	~User();
+	void printTenLastStatusOfFriends() const;
+	void addFriend(Friend& _friend);
+	void printFansPages() const;
 
 };
 

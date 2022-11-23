@@ -9,12 +9,13 @@ class Friend;
 class FansPage
 {
 private:
-
 	char* name;
+
 	Friend** pArrFans;
-	Status* publishBoard;
 	int friendsPysic;
 	int friendsCount;
+
+	Status* publishBoard;
 	int statusCount;
 	int statusPysic;
 

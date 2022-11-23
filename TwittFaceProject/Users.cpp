@@ -28,3 +28,18 @@ User::~User()
 {
 	delete[]name;
 }
+
+void Friend::printTenLastStatusOfFriends() const
+{
+
+}
+
+void Friend::addFriend(Friend& _friend)
+{
+
+}
+
+void Friend::printFansPages() const
+{
+
+}
