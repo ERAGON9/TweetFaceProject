@@ -1,11 +1,9 @@
-#ifndef __FUNCTIONS_H
-#define __FUNCTIONS_H
+#ifndef __FUNCTION_H
+#define __FUNCTION_H
 
 
+void printMenu();
 
 
+#endif // !__FUNCTION_H
 
-
-
-
-#endif

@@ -1,4 +1,5 @@
 #include "Status.h"
+#pragma warning(disable: 4996)
 
 Status::Status(const char* txt, Date d, Time t)
 {

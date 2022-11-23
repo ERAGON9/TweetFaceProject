@@ -5,7 +5,6 @@
 #include "Date.h"
 #include "Time.h"
 
-const int maxStatus = 500;
 
 class Status
 {

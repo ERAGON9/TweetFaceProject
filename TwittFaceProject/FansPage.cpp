@@ -1,5 +1,6 @@
 #include "FansPage.h"
 #include <string.h>
+#pragma warning(disable: 4996)
 
 FansPage::FansPage(const char* n) 
 {

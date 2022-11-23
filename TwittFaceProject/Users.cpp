@@ -1,4 +1,5 @@
 #include "Users.h"
+#pragma warning(disable: 4996)
 
 User::User(const char* n, Date d)
 {

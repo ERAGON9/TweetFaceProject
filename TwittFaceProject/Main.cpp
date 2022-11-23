@@ -5,6 +5,7 @@ Welcome to TwittFaceProject:
 #include "Status.h"
 #include "Users.h"
 #include "TwittFace.h"
+#include "Functions.h"
 
 using namespace std;
 
@@ -20,7 +21,7 @@ int main()
 
 	do
 	{
-
+		printMenu();
 
 
 	} while (input != 12);
