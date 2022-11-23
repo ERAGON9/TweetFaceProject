@@ -16,6 +16,9 @@ private:
 	int statusCount;
 	int statusPhysic;
 
+	Status** lastTen;
+	int latestCount;
+
 	User** friends;
 	int friendsPhysic;
 	int friendsCount;

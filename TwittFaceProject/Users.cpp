@@ -1,6 +1,8 @@
 #include "Users.h"
 #pragma warning(disable: 4996)
 
+#define maxLatest 10
+
 User::User(const char* n, Date d)
 {
 	name = new char[strlen(n) + 1];
@@ -12,9 +14,11 @@ User::User(const char* n, Date d)
 	friendsPhysic = 1;
 	pagesCount = 0;
 	pagesPhysic = 1;
+	latestCount = 0;
 	publishBoard = new Status*[statusPhysic];
 	friends = new User* [friendsPhysic];
 	pArrFansPages = new FansPage * [pagesPhysic];
+	lastTen = new Status * [maxLatest];
 }
 
 User::~User()
@@ -34,12 +38,16 @@ User::~User()
 void User::printTenLastStatusOfUsers()
 {
 	int i = 0;
-	while
+	//while
 
 }
 
-void addUser(User& _friend)
+void User::addUser(User& _friend)
 {
+	if()
+	friends[friendsCount] = &_friend;
+
+
 
 }
 

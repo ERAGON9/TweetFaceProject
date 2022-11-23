@@ -20,7 +20,8 @@ FansPage::~FansPage()
 {
 	delete[]name;
 
-	for (int i = 0; i < statusCount; i++) {
+	for (int i = 0; i < statusCount; i++) 
+	{
 		delete[]publishBoard[i];
 	}
 
