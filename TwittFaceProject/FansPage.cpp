@@ -10,14 +10,6 @@ FansPage::FansPage(const char* n)
 }
 
 
-FansPage::FansPage(const FansPage& other) 
-{
-	name = new char[strlen(other.name) + 1];
-	strcpy(name, other.name);
-	statusCount = other.statusCount;
-	friendsCount = other.friendsCount;
-}
-
 
 FansPage::~FansPage()
 {

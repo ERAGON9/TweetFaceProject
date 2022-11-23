@@ -23,7 +23,7 @@ private:
 
 public:
 	FansPage(const char* name);
-	FansPage(const FansPage& other);
+	FansPage(const FansPage& other) = delete;
 	~FansPage();
 };
 

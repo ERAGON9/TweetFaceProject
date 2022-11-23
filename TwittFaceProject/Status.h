@@ -3,6 +3,8 @@
 
 #include <string.h>
 
+const int maxStatus = 500;
+
 typedef struct Date 
 {
 	int day;
@@ -27,7 +29,7 @@ private:
 
 public:
 	Status(const char* txt, Date d, Time t);
-	Status(const Status& other);
+	Status(const Status& other) = delete;
 	~Status();
 
 };

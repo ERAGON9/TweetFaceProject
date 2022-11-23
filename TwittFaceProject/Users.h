@@ -14,13 +14,10 @@ private:
 	Status* publishBoard;
 	int statusCount;
 
-<<<<<<< Updated upstream:TwittFaceProject/Users.h
 	User** friends;
 
 	FansPage** pArrFansPages;
-=======
 	Friend** friends;
->>>>>>> Stashed changes:TwittFaceProject/Friend.h
 	int friendsPysic;
 	int friendsCount;
 
@@ -29,19 +26,13 @@ private:
 	int statusPysic;
 
 public:
-<<<<<<< Updated upstream:TwittFaceProject/Users.h
 	User(const char* txt, Date d);
-	User(const User& other);
+	User(const User& other) = delete;
 	~User();
-=======
-	Friend(const char* txt, Date d);
-	//Friend(const Friend& other);
-	~Friend();
 
 	void printTenLastStatusOfFriends() const;
 	void addFriend(Friend& _friend);
 	void printFansPages() const;
->>>>>>> Stashed changes:TwittFaceProject/Friend.h
 
 };
 

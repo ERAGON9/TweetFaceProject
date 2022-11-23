@@ -54,3 +54,5 @@ TwittFaceProject/.vs/TwittFaceProject/v16/ipch/AutoPCH/e31dee15d6e854aa/FRIEND.i
 TwittFaceProject/.vs/TwittFaceProject/v16/ipch/AutoPCH/9d7d69eea0b0a60f/FRIEND.ipch
 TwittFaceProject/.vs/TwittFaceProject/v16/ipch/AutoPCH/67f476888ebb3387/FANSPAGE.ipch
 TwittFaceProject/.vs/TwittFaceProject/v16/ipch/AutoPCH/c78ea9e48e623ba4/STATUS.ipch
+*.ipch
+*.ipch
