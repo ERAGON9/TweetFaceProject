@@ -10,7 +10,7 @@ private:
 public:
 	Date() = default;
 	Date(const int day, const int month, const int year) : day(day), month(month), year(year) {};
-	Date(const Date& other) = delete;
+	Date(const Date& other);
 	const int getDay() { return day; };
 	const int getmonth() { return month; };
 	const int getYear() { return year; };
