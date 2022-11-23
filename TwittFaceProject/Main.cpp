@@ -1,21 +1,29 @@
-
 #include <iostream>
 #include "Status.h"
+#include "Users.h"
+#include "TwittFace.h"
 
 using namespace std;
+#pragma warning(disable: 4996)
 
-#include "Friend.h"
-
-
-const int maxLenght = 500;
+const int maxName = 20;
+const int maxStatus = 500;
 
 int main()
 {
-
+	TwittFace system;
 	Date aDate;
 	Time aTime;
-	const char aStatus[maxLenght];
-	const char aName[maxLenght];
+	int input;
+	const char aStatus[maxStatus];
+	const char aName[maxName];
+
+	do
+	{
+
+
+
+	} while (input != 12);
 
 
 	

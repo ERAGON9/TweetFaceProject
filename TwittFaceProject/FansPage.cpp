@@ -9,7 +9,7 @@ FansPage::FansPage(const char* n)
 	friendsCount = 0;
 }
 
-/*
+
 FansPage::FansPage(const FansPage& other) 
 {
 	name = new char[strlen(other.name) + 1];
@@ -17,7 +17,7 @@ FansPage::FansPage(const FansPage& other)
 	statusCount = other.statusCount;
 	friendsCount = other.friendsCount;
 }
-*/
+
 
 FansPage::~FansPage()
 {

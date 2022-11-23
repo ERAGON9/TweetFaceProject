@@ -16,16 +16,18 @@ typedef struct Time
 	int minutes;
 } Time;
 
+
+
 class Status
 {
 private:
 	Date date;
 	Time time;
-	char* text;
+	char text[maxStatus];
 
 public:
 	Status(const char* txt, Date d, Time t);
-	//Status(const Status& other);
+	Status(const Status& other);
 	~Status();
 
 };
