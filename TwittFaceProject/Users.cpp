@@ -14,11 +14,9 @@ User::User(const char* n, Date d)
 	friendsPhysic = 1;
 	pagesCount = 0;
 	pagesPhysic = 1;
-	latestCount = 0;
 	publishBoard = new Status*[statusPhysic];
 	friends = new User* [friendsPhysic];
 	pArrFansPages = new FansPage * [pagesPhysic];
-	lastTen = new Status * [maxLatest];
 }
 
 User::~User()
@@ -37,21 +35,105 @@ User::~User()
 
 void User::printTenLastStatusOfUsers()
 {
-	int i = 0;
-	//while
+	for (int i = statusCount; statusCount - i < 10; i--)
+		publishBoard[i]->printStatus();
 
 }
 
-void User::addUser(User& _friend)
+const char* User::getName() const
 {
-	if()
-	friends[friendsCount] = &_friend;
+	return name;
+}
 
+void User::addStatus(Status* tweet)
+{
+	if (statusCount == statusPhysic) 
+	{
+		statusPhysic *= 2;
+		Status** tmp = new Status * [statusPhysic];
 
+		for (int i = 0; i < statusCount; i++)
+			tmp[i] = publishBoard[i];
+
+		delete[]publishBoard;
+		publishBoard = tmp;
+	}
+
+	publishBoard[statusCount] = tweet;
+	statusCount++;
+}
+
+void User::addFriend(User* _friend)
+{
+	if (friendsCount == friendsPhysic) {
+		friendsPhysic *= 2;
+		User** tmp = new User * [friendsPhysic];
+
+		for (int i = 0; i < friendsCount; i++)
+			tmp[i] = friends[i];
+
+		delete[]friends;
+		friends = tmp;
+	}
+	friends[friendsCount] = _friend;
+	friendsCount++;
+}
+
+void User::removeFriend(User* _friend)
+{
+	for (int i = 0; i < friendsCount; i++)
+	{
+		if (friends[i] == _friend)
+		{
+			if (i != friendsCount - 1) 
+				friends[i] = friends[friendsCount - 1];
+			friends[friendsCount - 1] = nullptr;
+			i = friendsCount;
+			friendsCount--;
+		}
+	}
 
 }
 
-void User::printFansPages() 
+void User::printFriends() 
 {
+	for (int i = 0; i < friendsCount; i++) 
+		cout << friends[i]->getName() << endl;
+}
 
+void User::printAllStatuses()
+{
+	for (int i = 0; i < statusCount; i++)
+		publishBoard[i]->printStatus();
+}
+
+void User::addFansPage(FansPage* page)
+{
+	if (pagesCount == pagesPhysic) {
+		pagesPhysic *= 2;
+		FansPage** tmp = new FansPage * [pagesPhysic];
+
+		for (int i = 0; i < pagesCount; i++)
+			tmp[i] = pArrFansPages[i];
+
+		delete[]pArrFansPages;
+		pArrFansPages = tmp;
+	}
+	pArrFansPages[pagesCount] = page;
+	pagesCount++;
+}
+
+void User::removeFansPage(FansPage* page) 
+{
+	for (int i = 0; i < pagesCount; i++)
+	{
+		if (pArrFansPages[i] == page)
+		{
+			if (i != pagesCount - 1)
+				pArrFansPages[i] = pArrFansPages[pagesCount - 1];
+			pArrFansPages[pagesCount - 1] = nullptr;
+			i = pagesCount;
+			pagesCount--;
+		}
+	}
 }

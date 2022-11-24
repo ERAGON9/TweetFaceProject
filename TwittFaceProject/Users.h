@@ -16,9 +16,6 @@ private:
 	int statusCount;
 	int statusPhysic;
 
-	Status** lastTen;
-	int latestCount;
-
 	User** friends;
 	int friendsPhysic;
 	int friendsCount;
@@ -34,8 +31,14 @@ public:
 	~User();
 
 	void printTenLastStatusOfUsers();
-	void addUser(User& _friend);
-	void printFansPages();
+	void addFriend(User* _friend);
+	void removeFriend(User* _friend);
+	const char* getName() const;
+	void printFriends();
+	void addStatus(Status* status);
+	void printAllStatuses();
+	void addFansPage(FansPage* page);
+	void removeFansPage(FansPage* page);
 
 };
 

@@ -21,6 +21,7 @@ int main()
 
 	do
 	{
+		cin >> input;
 		printMenu();
 
 		
