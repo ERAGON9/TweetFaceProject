@@ -1,5 +1,7 @@
-#include "FansPage.h"
+
 #include <string.h>
+#include "FansPage.h"
+#include "Status.h"
 #pragma warning(disable: 4996)
 
 FansPage::FansPage(const char* n) 

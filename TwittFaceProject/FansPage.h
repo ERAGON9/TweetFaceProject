@@ -1,10 +1,8 @@
 #ifndef __FANSPAGE_H
 #define __FANSPAGE_H
 
-#include "Status.h"
-
-
 class Friend;
+class Status;
 
 class FansPage
 {
@@ -22,7 +20,6 @@ private:
 
 
 public:
-	FansPage() = default;
 	FansPage(const char* name);
 	FansPage(const FansPage& other) = delete;
 	~FansPage();

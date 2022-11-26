@@ -8,9 +8,7 @@ private:
 	int minute;
 
 public:
-	Time() = default;
 	Time(const int hour, const int minute, const int year) : minute(minute), hour(hour) {};
-	Time(const Time& other);
 	const int getHour() { return hour; };
 	const int getminute() { return minute; };
 };

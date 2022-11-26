@@ -1,10 +1,9 @@
 #ifndef __Users_H
 #define __Users_H
 
-
-using namespace std;
-#include "FansPage.h"
 #include "Date.h"
+class FansPage;
+class Status;
 
 class User
 {
@@ -25,8 +24,8 @@ private:
 	int pagesCount;
 
 public:
-	User() = default;
-	User(const char* txt, Date d);
+	/*User(const char* _name, const Date& _date);*/
+	User(const char* _name, const int day, const int month, const int year);
 	User(const User& other) = delete;
 	~User();
 

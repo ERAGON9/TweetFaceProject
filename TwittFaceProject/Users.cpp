@@ -1,21 +1,42 @@
+
+#include <iostream>
+using namespace std;
+#include <string.h>
 #include "Users.h"
+#include "Status.h"
+#include "FansPage.h"
+
 #pragma warning(disable: 4996)
 
 #define maxLatest 10
 
-User::User(const char* n, Date d)
+//User::User(const char* _name, const Date& _date) :bDay(_date)
+//{
+//	name = new char[strlen(_name) + 1];
+//	strcpy(name, _name);
+//	statusCount = 0;
+//	statusPhysic = 1;
+//	friendsCount = 0;
+//	friendsPhysic = 1;
+//	pagesCount = 0;
+//	pagesPhysic = 1;
+//	publishBoard = new Status*[statusPhysic];
+//	friends = new User* [friendsPhysic];
+//	pArrFansPages = new FansPage * [pagesPhysic];
+//}
+
+User::User(const char* _name, const int day, const int month, const int year) : bDay(day, month, year)
 {
-	name = new char[strlen(n) + 1];
-	strcpy(name, n);
-	bDay = d;
+	name = new char[strlen(_name) + 1];
+	strcpy(name, _name);
 	statusCount = 0;
 	statusPhysic = 1;
 	friendsCount = 0;
 	friendsPhysic = 1;
 	pagesCount = 0;
 	pagesPhysic = 1;
-	publishBoard = new Status*[statusPhysic];
-	friends = new User* [friendsPhysic];
+	publishBoard = new Status * [statusPhysic];
+	friends = new User * [friendsPhysic];
 	pArrFansPages = new FansPage * [pagesPhysic];
 }
 
@@ -110,7 +131,8 @@ void User::printAllStatuses()
 
 void User::addFansPage(FansPage* page)
 {
-	if (pagesCount == pagesPhysic) {
+	if (pagesCount == pagesPhysic) 
+	{
 		pagesPhysic *= 2;
 		FansPage** tmp = new FansPage * [pagesPhysic];
 
