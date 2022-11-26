@@ -5,6 +5,7 @@
 
 
 void printMenu();
+void action(int& value);
 
 
 #endif // !__FUNCTION_H

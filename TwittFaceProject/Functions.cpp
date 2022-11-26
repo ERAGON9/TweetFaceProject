@@ -18,3 +18,18 @@ void printMenu()
 		<< "11 - Show all the friends of a user / fans of a fan page" << endl
 		<< "12 - Exit" << endl;
 }
+
+void action(int& value)
+{
+	cin >> value;
+	switch (value)
+	{
+	case 1:
+		//addfriend();
+	case 2:
+
+
+	default:
+		break;
+	}
+}

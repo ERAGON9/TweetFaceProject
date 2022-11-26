@@ -17,11 +17,13 @@ const int maxStatus = 500;
 int main()
 {
 	TwittFace system;
-	int input;
+	int input = 0;
+
 
 	do
 	{
 		printMenu();
+		action(input);
 
 		
 	} while (input != 12);

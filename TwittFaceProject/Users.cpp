@@ -34,11 +34,10 @@ User::~User()
 void User::printTenLastStatusOfUsers()
 {
 	int i = 0;
-	while
 
 }
 
-void addUser(User& _friend)
+void User::addUser(User& _friend)
 {
 
 }
