@@ -11,3 +11,8 @@ Status::~Status()
 {
 	delete[]text;
 }
+
+void Status::printStatus() const
+{
+	cout << text << endl;
+}

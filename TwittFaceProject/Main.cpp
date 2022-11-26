@@ -22,6 +22,7 @@ int main()
 
 	do
 	{
+		cin >> input;
 		printMenu();
 		action(input);
 
