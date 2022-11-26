@@ -35,7 +35,7 @@ void action(int& value, TwittFace& system)
 		addUser(system);
 		break;
 	case 2:
-		addFunPage(system);
+		addFanPage(system);
 		break;
 	case 3:
 		break;
@@ -44,6 +44,7 @@ void action(int& value, TwittFace& system)
 	case 5:
 		break;
 	case 6:
+		connectUsers(system);
 		break;
 	case 7:
 		break;
@@ -75,11 +76,43 @@ void addUser(TwittFace& system)
 }
 
 
-void addFunPage(TwittFace& system)
+void addFanPage(TwittFace& system)
 {
 	char name[maxName];
 	cout << "\nYou choosen to Add a fan page: \nPlease enter fan page name (no more than 30 characters): ";
 	cin >> name;
 	FansPage* newFanPage = new FansPage(name);
 	system.addFanPageToSystem(newFanPage);
+}
+
+User* findUser(TwittFace& system, const char* name) 
+{
+	User*** tmp = system.getAllTheUsers();
+
+	for (int i = 0; i < system.getUsersLogic(); i++)
+	{
+		if (strcmp((*tmp)[i]->getName(), name))
+			return (*tmp)[i];
+	}
+
+	return nullptr;
+}
+
+void connectUsers(TwittFace& system)
+{
+	char name1[maxName], name2[maxName];
+	User *user1, *user2;
+	cout << "Please enter the name of the first user: ";
+	cin >> name1;
+	cout << "Please enter the name of the second user: ";
+	cin >> name2;
+	user1 = findUser(system, name1);
+
+	if (!user1->checkIfFriend(name2))
+	{
+		user2 = findUser(system, name2);
+		user2->addFriend(user1);
+		user1->addFriend(user2);
+	}
+
 }

@@ -8,8 +8,6 @@ using namespace std;
 
 #pragma warning(disable: 4996)
 
-#define maxLatest 10
-
 //User::User(const char* _name, const Date& _date) :bDay(_date)
 //{
 //	name = new char[strlen(_name) + 1];
@@ -56,14 +54,8 @@ User::~User()
 
 void User::printTenLastStatusOfUsers()
 {
-	int i = 0;
-
-}
-
-
-const char* User::getName() const
-{
-	return name;
+	for (int i = statusCount; i > statusCount - 10; i--)
+		publishBoard[i]->printStatus();
 }
 
 void User::addStatus(Status* tweet)
@@ -159,4 +151,15 @@ void User::removeFansPage(FansPage* page)
 			pagesCount--;
 		}
 	}
+}
+
+bool User::checkIfFriend(const char* name)
+{
+	for (int i = 0; i < friendsCount; i++)
+	{
+		if (strcmp(friends[i]->getName(), name) == 0)
+			return true;
+	}
+
+	return false;
 }

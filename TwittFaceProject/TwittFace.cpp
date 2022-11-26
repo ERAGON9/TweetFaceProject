@@ -6,8 +6,8 @@
 TwittFace::TwittFace()
 {
 	usersLogic = 0;
-	userPhisic = 1;
-	allTheUsers = new User * [userPhisic];
+	userPhysic = 1;
+	allTheUsers = new User * [userPhysic];
 
 	fanPagesLogic = 0;
 	fansPagesPhysic = 1;
@@ -22,10 +22,10 @@ TwittFace::~TwittFace()
 }
 void TwittFace::addUserToSystem(User* newUser)
 {
-	if (usersLogic == userPhisic)
+	if (usersLogic == userPhysic)
 	{
-		userPhisic *= 2;
-		User** tmp = new User* [userPhisic];
+		userPhysic *= 2;
+		User** tmp = new User* [userPhysic];
 
 		for (int i = 0; i < usersLogic; i++)
 			tmp[i] = allTheUsers[i];

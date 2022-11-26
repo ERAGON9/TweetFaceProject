@@ -32,12 +32,13 @@ public:
 	void printTenLastStatusOfUsers();
 	void addFriend(User* _friend);
 	void removeFriend(User* _friend);
-	const char* getName() const;
+	const char* getName() const { return name; };
 	void printFriends();
 	void addStatus(Status* status);
 	void printAllStatuses();
 	void addFansPage(FansPage* page);
 	void removeFansPage(FansPage* page);
+	bool checkIfFriend(const char* name);
 
 };
 

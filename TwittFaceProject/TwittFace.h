@@ -10,7 +10,7 @@ private:
 
 	User** allTheUsers;
 	int usersLogic;
-	int userPhisic;
+	int userPhysic;
 
 	FansPage** allTheFanPages;
 	int fanPagesLogic;
