@@ -12,28 +12,23 @@ using namespace std;
 
 #pragma warning(disable: 4996)
 
-const int maxStatus = 500;
 
 int main()
 {
 	TwittFace system;
 	int input = 0;
 	
-	User* lior = new User ("lior", 3, 2, 1999), *shalev = new User("shalev", 1, 1, 1999), *michael = new User("michael", 2, 2, 1999);
-	FansPage* liorFP = new FansPage("liorbusiness"), *shalevFP = new FansPage("shalevbusiness"), *michaelFP = new FansPage("michaelbusiness");
-
-	system.addUserToSystem(lior);
-	system.addUserToSystem(shalev);
-	system.addUserToSystem(michael);
-	system.addFanPageToSystem(liorFP);
-	system.addFanPageToSystem(shalevFP);
-	system.addFanPageToSystem(michaelFP);
+	initHardCodedData(system);
 
 	do
 	{
-		for (int i = 0; i < system.getUsersLogic(); i++) // check that action number 1 work
+		for (int i = 0; i < system.getUsersLogic(); i++) // check that actions
 		{
-			cout << endl << (*((*system.getAllTheUsers())[i])).getName() << endl << endl;
+			cout << "\n\n" << (*((*system.getAllTheUsers())[i])).getName() << "\n" << endl;
+		}
+		for (int j = 0; j < system.getFanPageLogic(); j++) // check that actions
+		{
+			cout << "\n\n" << (*((*system.getAllTheFanPages())[j])).getName() << "\n" << endl;
 		}
 
 		printMenu();

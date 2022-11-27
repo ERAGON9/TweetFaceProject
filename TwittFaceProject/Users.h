@@ -24,21 +24,23 @@ private:
 	int pagesCount;
 
 public:
-	/*User(const char* _name, const Date& _date);*/
 	User(const char* _name, const int day, const int month, const int year);
 	User(const User& other) = delete;
 	~User();
 
-	void printTenLastStatusOfUsers();
+	const char* getName() const { return name; }
+	const int getFriendsLogic() const { return friendsCount; }
+    User*** getFriends() { return &friends; }
+	void printTenLastStatusOfTheUser();
+	void addStatus(Status* status);
 	void addFriend(User* _friend);
 	void removeFriend(User* _friend);
-	const char* getName() const { return name; };
 	void printFriends();
-	void addStatus(Status* status);
 	void printAllStatuses();
 	void addFansPage(FansPage* page);
-	void removeFansPage(FansPage* page);
+	void removeFansPage(FansPage* page);  // more edits here
 	bool checkIfFriend(const char* name);
+	bool checkIfFanOfFanPage(FansPage* fanPage);
 
 };
 

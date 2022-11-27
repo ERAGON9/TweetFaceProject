@@ -8,21 +8,6 @@ using namespace std;
 
 #pragma warning(disable: 4996)
 
-//User::User(const char* _name, const Date& _date) :bDay(_date)
-//{
-//	name = new char[strlen(_name) + 1];
-//	strcpy(name, _name);
-//	statusCount = 0;
-//	statusPhysic = 1;
-//	friendsCount = 0;
-//	friendsPhysic = 1;
-//	pagesCount = 0;
-//	pagesPhysic = 1;
-//	publishBoard = new Status*[statusPhysic];
-//	friends = new User* [friendsPhysic];
-//	pArrFansPages = new FansPage * [pagesPhysic];
-//}
-
 User::User(const char* _name, const int day, const int month, const int year) : bDay(day, month, year)
 {
 	name = new char[strlen(_name) + 1];
@@ -38,6 +23,7 @@ User::User(const char* _name, const int day, const int month, const int year) : 
 	pArrFansPages = new FansPage * [pagesPhysic];
 }
 
+
 User::~User()
 {
 	delete[]name;
@@ -52,11 +38,13 @@ User::~User()
 	delete[]pArrFansPages;
 }
 
-void User::printTenLastStatusOfUsers()
+
+void User::printTenLastStatusOfTheUser()
 {
-	for (int i = statusCount; i > statusCount - 10; i--)
+	for (int i = statusCount; (i > statusCount - 10) && (i > 0); i--)
 		publishBoard[i]->printStatus();
 }
+
 
 void User::addStatus(Status* tweet)
 {
@@ -76,38 +64,49 @@ void User::addStatus(Status* tweet)
 	statusCount++;
 }
 
+
 void User::addFriend(User* _friend)
 {
-	if (friendsCount == friendsPhysic) 
+	if (checkIfFriend(_friend->getName()) == false)
 	{
-		friendsPhysic *= 2;
-		User** tmp = new User * [friendsPhysic];
+		if (friendsCount == friendsPhysic)
+		{
+			friendsPhysic *= 2;
+			User** tmp = new User * [friendsPhysic];
 
-		for (int i = 0; i < friendsCount; i++)
-			tmp[i] = friends[i];
+			for (int i = 0; i < friendsCount; i++)
+				tmp[i] = friends[i];
 
-		delete[]friends;
-		friends = tmp;
+			delete[]friends;
+			friends = tmp;
+		}
+		friends[friendsCount] = _friend;
+		friendsCount++;
+
+		_friend->addFriend(this);
 	}
-	friends[friendsCount] = _friend;
-	friendsCount++;
 }
+
 
 void User::removeFriend(User* _friend)
 {
-	for (int i = 0; i < friendsCount; i++)
+	if (checkIfFriend(_friend->getName()) == true)
 	{
-		if (friends[i] == _friend)
+		for (int i = 0; i < friendsCount; i++)
 		{
-			if (i != friendsCount - 1) 
-				friends[i] = friends[friendsCount - 1];
-			friends[friendsCount - 1] = nullptr;
-			i = friendsCount;
-			friendsCount--;
+			if (friends[i] == _friend)
+			{
+				if (i != friendsCount - 1)
+					friends[i] = friends[friendsCount - 1];
+				friends[friendsCount - 1] = nullptr;
+				i = friendsCount;
+				friendsCount--;
+			}
 		}
+		_friend->removeFriend(this);
 	}
-
 }
+
 
 void User::printFriends() 
 {
@@ -115,28 +114,37 @@ void User::printFriends()
 		cout << friends[i]->getName() << endl;
 }
 
+
 void User::printAllStatuses()
 {
 	for (int i = 0; i < statusCount; i++)
 		publishBoard[i]->printStatus();
 }
 
-void User::addFansPage(FansPage* page)
+
+void User::addFansPage(FansPage* fanPage)
 {
-	if (pagesCount == pagesPhysic) 
+	if (checkIfFanOfFanPage(fanPage) == false)
 	{
-		pagesPhysic *= 2;
-		FansPage** tmp = new FansPage * [pagesPhysic];
+		if (pagesCount == pagesPhysic)
+		{
+			pagesPhysic *= 2;
+			FansPage** tmp = new FansPage * [pagesPhysic];
 
-		for (int i = 0; i < pagesCount; i++)
-			tmp[i] = pArrFansPages[i];
+			for (int i = 0; i < pagesCount; i++)
+				tmp[i] = pArrFansPages[i];
 
-		delete[]pArrFansPages;
-		pArrFansPages = tmp;
+			delete[]pArrFansPages;
+			pArrFansPages = tmp;
+		}
+
+		pArrFansPages[pagesCount] = fanPage;
+		pagesCount++;
+
+		fanPage->addFan(this);
 	}
-	pArrFansPages[pagesCount] = page;
-	pagesCount++;
 }
+
 
 void User::removeFansPage(FansPage* page) 
 {
@@ -153,11 +161,24 @@ void User::removeFansPage(FansPage* page)
 	}
 }
 
+
 bool User::checkIfFriend(const char* name)
 {
 	for (int i = 0; i < friendsCount; i++)
 	{
 		if (strcmp(friends[i]->getName(), name) == 0)
+			return true;
+	}
+
+	return false;
+}
+
+
+bool User::checkIfFanOfFanPage(FansPage* fanPage)
+{
+	for (int i = 0; i < pagesCount; i++)
+	{
+		if (pArrFansPages[i] == fanPage)
 			return true;
 	}
 

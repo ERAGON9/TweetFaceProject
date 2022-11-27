@@ -9,10 +9,11 @@ private:
 	int year;
 
 public:
-	Date(const int day, const int month, const int year) : day(day), month(month), year(year) {};
-	const int getDay() { return day; };
-	const int getmonth() { return month; };
-	const int getYear() { return year; };
+	Date();                                                 // constractor with the current date.
+	Date(const int day, const int month, const int year);   // constructor with day,month,year by values.
+	const int getDay() const { return day; };
+	const int getmonth() const { return month; };
+	const int getYear() const { return year; };
 };
 
 #endif

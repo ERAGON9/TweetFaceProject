@@ -15,7 +15,7 @@ private:
 	char* text;
 
 public:
-	Status(const char* txt, const Date& d, const Time& t);
+	Status(const char* txt);
 	Status(const Status& other) = delete;
 	~Status();
 
