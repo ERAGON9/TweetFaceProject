@@ -1,11 +1,11 @@
 
 #include <iostream>
-using namespace std;
 #include <string.h>
 #include "Users.h"
 #include "Status.h"
 #include "FansPage.h"
 
+using namespace std;
 #pragma warning(disable: 4996)
 
 User::User(const char* _name, const int day, const int month, const int year) : bDay(day, month, year)
@@ -108,7 +108,7 @@ void User::removeFriend(User* _friend)
 }
 
 
-void User::printFriends() 
+void User::printAllFriends()
 {
 	for (int i = 0; i < friendsCount; i++) 
 		cout << friends[i]->getName() << endl;
@@ -148,16 +148,20 @@ void User::addFansPage(FansPage* fanPage)
 
 void User::removeFansPage(FansPage* page) 
 {
-	for (int i = 0; i < pagesCount; i++)
+	if (checkIfFanOfFanPage(page) == true)
 	{
-		if (pArrFansPages[i] == page)
+		for (int i = 0; i < pagesCount; i++)
 		{
-			if (i != pagesCount - 1)
-				pArrFansPages[i] = pArrFansPages[pagesCount - 1];
-			pArrFansPages[pagesCount - 1] = nullptr;
-			i = pagesCount;
-			pagesCount--;
+			if (pArrFansPages[i] == page)
+			{
+				if (i != pagesCount - 1)
+					pArrFansPages[i] = pArrFansPages[pagesCount - 1];
+				pArrFansPages[pagesCount - 1] = nullptr;
+				i = pagesCount;
+				pagesCount--;
+			}
 		}
+		page->removeFan(this);
 	}
 }
 

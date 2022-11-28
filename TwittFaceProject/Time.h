@@ -13,7 +13,4 @@ public:
 	const int getminute() const { return minute; };
 };
 
-
-
-
 #endif

@@ -4,7 +4,6 @@
 
 #pragma warning(disable: 4996)
 
-
 Time::Time()
 {
 	time_t timeSecounds = time(0);
@@ -13,6 +12,3 @@ Time::Time()
 	hour = currentTime->tm_hour;
 	minute = currentTime->tm_min;
 }
-
-
-

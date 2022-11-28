@@ -4,8 +4,6 @@
 #include "Date.h"
 #include "Time.h"
 
-using namespace std;
-
 
 class Status
 {
@@ -20,9 +18,7 @@ public:
 	~Status();
 
 	void printStatus() const;
-
 };
-
 
 #endif // !__STATUS_H
 

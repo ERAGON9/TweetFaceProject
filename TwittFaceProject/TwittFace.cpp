@@ -1,8 +1,10 @@
-#include "TwittFace.h"
 
+#include "TwittFace.h"
 #include "Users.h"
 #include "FansPage.h"
 #include <string.h>
+
+#pragma warning(disable: 4996)
 
 TwittFace::TwittFace()
 {
@@ -21,6 +23,8 @@ TwittFace::~TwittFace()
 	delete[]allTheFanPages;
 
 }
+
+
 void TwittFace::addUserToSystem(User* newUser)
 {
 	if (usersLogic == userPhysic)
@@ -38,6 +42,7 @@ void TwittFace::addUserToSystem(User* newUser)
 	allTheUsers[usersLogic] = newUser;
 	usersLogic++;
 }
+
 
 void TwittFace::addFanPageToSystem(FansPage* newFanPage)
 {
@@ -69,6 +74,7 @@ bool TwittFace::isUserExist(const char* userName)
 	return false;
 }
 
+
 User& TwittFace::getUserbyName(const char* userName)
 {
 	for (int i = 0; i < usersLogic; i++)
@@ -77,6 +83,7 @@ User& TwittFace::getUserbyName(const char* userName)
 			return *(allTheUsers[i]);
 	}
 }
+
 
 bool TwittFace::isFanPageExist(const char* fanPageName)
 {
@@ -88,6 +95,7 @@ bool TwittFace::isFanPageExist(const char* fanPageName)
 
 	return false;
 }
+
 
 FansPage& TwittFace::getFanPagebyName(const char* fanPageName)
 {

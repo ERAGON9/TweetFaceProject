@@ -1,7 +1,6 @@
 #ifndef __FANSPAGE_H
 #define __FANSPAGE_H
 
-class Friend;
 class Status;
 class User;
 
@@ -18,8 +17,6 @@ private:
 	int statusCount;
 	int statusPhysic;
 
-
-
 public:
 	FansPage(const char* name);
 	FansPage(const FansPage& other) = delete;
@@ -29,11 +26,9 @@ public:
 	void printAllStatuses();
 	void addFan(User* newFan);
 	bool checkIfFan(User* fan);
-
+	void removeFan(User* fan);
+	void printAllFans();
 };
-
-
-
 
 #endif // !__FANSPAGE_H
 

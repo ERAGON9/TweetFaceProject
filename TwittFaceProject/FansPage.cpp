@@ -3,6 +3,9 @@
 #include <string.h>
 #include "Status.h"
 #include "Users.h"
+#include <iostream>
+
+using namespace std;
 #pragma warning(disable: 4996)
 
 FansPage::FansPage(const char* n) 
@@ -90,4 +93,31 @@ bool FansPage::checkIfFan(User* fan)
 	}
 
 	return false;
+}
+
+
+void FansPage::removeFan(User* fan)
+{
+	if (checkIfFan(fan) == true)
+	{
+		for (int i = 0; i < friendsCount; i++)
+		{
+			if (pArrFans[i] == fan)
+			{
+				if (i != friendsCount - 1)
+					pArrFans[i] = pArrFans[friendsCount - 1];
+				pArrFans[friendsCount - 1] = nullptr;
+				i = friendsCount;
+				friendsCount--;
+			}
+		}
+		fan->removeFansPage(this);
+	}
+}
+
+
+void FansPage::printAllFans()
+{
+	for (int i = 0; i < friendsCount; i++)
+		cout << pArrFans[i]->getName() << endl;
 }

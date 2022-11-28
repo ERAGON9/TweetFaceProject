@@ -30,18 +30,17 @@ public:
 
 	const char* getName() const { return name; }
 	const int getFriendsLogic() const { return friendsCount; }
-    User*** getFriends() { return &friends; }
+    User** getFriends() { return friends; }
 	void printTenLastStatusOfTheUser();
 	void addStatus(Status* status);
 	void addFriend(User* _friend);
 	void removeFriend(User* _friend);
-	void printFriends();
+	void printAllFriends();
 	void printAllStatuses();
 	void addFansPage(FansPage* page);
-	void removeFansPage(FansPage* page);  // more edits here
+	void removeFansPage(FansPage* page);
 	bool checkIfFriend(const char* name);
 	bool checkIfFanOfFanPage(FansPage* fanPage);
-
 };
 
 #endif // !__Users_H

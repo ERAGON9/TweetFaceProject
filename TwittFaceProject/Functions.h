@@ -20,8 +20,11 @@ void printTenMostRecentFriendsStatuses(TwittFace& system);
 void connectUsers(TwittFace& system);
 void seperateUsers(TwittFace& system);
 void addFanToFanPage(TwittFace& system);
-
-
+void removeFanFromFanPage(TwittFace& system);
+void printAllObjects(TwittFace& system);
+void showAllFriendsOrFans(TwittFace& system);
+void showAllFriens(TwittFace& system);
+void showAllFans(TwittFace& system);
 
 #endif // !__FUNCTION_H
 

@@ -1,5 +1,9 @@
 /*
 Welcome to TwittFaceProject:
+created by Lior Barak, 206631418 and Shalev Kedar
+The project administor a network of conections between friends and fan pages.
+Every user (a friend) and fan page can upload statuses, and more option wit a 12 options menu.
+Good luck
 */
 #include <iostream>
 #include "TwittFace.h"
@@ -9,28 +13,18 @@ Welcome to TwittFaceProject:
 #include "Functions.h"
 
 using namespace std;
-
 #pragma warning(disable: 4996)
 
 
 int main()
 {
 	TwittFace system;
-	int input = 0;
+	int input;
 	
 	initHardCodedData(system);
 
 	do
 	{
-		for (int i = 0; i < system.getUsersLogic(); i++) // check that actions
-		{
-			cout << "\n\n" << (*((*system.getAllTheUsers())[i])).getName() << "\n" << endl;
-		}
-		for (int j = 0; j < system.getFanPageLogic(); j++) // check that actions
-		{
-			cout << "\n\n" << (*((*system.getAllTheFanPages())[j])).getName() << "\n" << endl;
-		}
-
 		printMenu();
 		cin >> input;
 		action(input, system);
