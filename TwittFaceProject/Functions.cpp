@@ -16,12 +16,12 @@ const int maxStatus = 501;
 
 void initHardCodedData(TwittFace& system)
 {
-	User* lior = new User("lior", 3, 2, 1999);
-	User* shalev = new User("shalev", 1, 1, 1999);
-	User*michael = new User("michael", 2, 2, 1999);
-	FansPage* liorFP = new FansPage("liorbusiness");
-	FansPage* shalevFP = new FansPage("shalevbusiness");
-	FansPage* michaelFP = new FansPage("michaelbusiness");
+	User* lior = new User("Lior", 3, 2, 1999);
+	User* shalev = new User("Shalev", 1, 1, 1999);
+	User*michael = new User("Michael", 2, 2, 1999);
+	FansPage* liorFP = new FansPage("LiorBusiness");
+	FansPage* shalevFP = new FansPage("ShalevBusiness");
+	FansPage* michaelFP = new FansPage("MichaelBusiness");
 
 	system.addUserToSystem(lior);
 	system.addUserToSystem(shalev);
@@ -30,25 +30,24 @@ void initHardCodedData(TwittFace& system)
 	system.addFanPageToSystem(shalevFP);
 	system.addFanPageToSystem(michaelFP);
 
-	lior->addStatus(new Status("First user status"));
-	lior->addStatus(new Status("Second user status"));
-	shalev->addStatus(new Status("First user status"));
-	shalev->addStatus(new Status("Second user status"));
-	michael->addStatus(new Status("First user status"));
-	michael->addStatus(new Status("Second user status"));
-	liorFP->addStatus(new Status("First fan page status"));
-	liorFP->addStatus(new Status("Second fan page status"));
-	shalevFP->addStatus(new Status("First fan page status"));
-	shalevFP->addStatus(new Status("Second fan page status"));
-	michaelFP->addStatus(new Status("First fan page status"));
-	michaelFP->addStatus(new Status("Second fan page status"));
+	lior->addStatus(new Status("Lior's First status"));
+	lior->addStatus(new Status("Lior's Second status"));
+	shalev->addStatus(new Status("Shalev's First status"));
+	shalev->addStatus(new Status("Shalev'sSecond status"));
+	michael->addStatus(new Status("Michael's First status"));
+	michael->addStatus(new Status("Michael's Second status"));
+	liorFP->addStatus(new Status("LiorBusiness First status"));
+	liorFP->addStatus(new Status("LiorBusiness Second status"));
+	shalevFP->addStatus(new Status("ShalevBusinessFirst status"));
+	shalevFP->addStatus(new Status("ShalevBusiness Second status"));
+	michaelFP->addStatus(new Status("MichaelBusiness First status"));
+	michaelFP->addStatus(new Status("MichaelBusiness Second status"));
 
 	lior->addFriend(shalev);
 	shalev->addFriend(michael);
 	lior->addFansPage(liorFP);
 	shalev->addFansPage(shalevFP);
 	michael->addFansPage(michaelFP);
-
 }
 
 
@@ -72,7 +71,6 @@ void printMenu()
 
 void action(int& value, TwittFace& system)
 {
-
 	switch (value)
 	{
 	case 1:
@@ -119,14 +117,15 @@ void addUser(TwittFace& system)
 {
 	char name[maxName];
 	int day, month, year;
-	cout << "\nPlease enter User name (no more than 30 characters): ";
+	cout << "Please enter User name (one word, no more than 30 characters): ";
 	cin >> name;
 	if (system.isUserExist(name) == false)
 	{
-		cout << "\nPlease enter your birth day (day  month  year): ";
+		cout << "\nPlease enter your birth day (day (space/enter)  month (space/enter) year ): ";
 		cin >> day >> month >> year;
 		User* newUser = new User(name, day, month, year);
 		system.addUserToSystem(newUser);
+		cout << "\nUser added successfully" << endl;
 	}
 	else
 		cout << "\nThe name already taken, back to menu." << endl;
@@ -136,12 +135,13 @@ void addUser(TwittFace& system)
 void addFanPage(TwittFace& system)
 {
 	char name[maxName];
-	cout << "\nPlease enter fan page name (no more than 30 characters): ";
+	cout << "Please enter fan page name (no more than 30 characters): ";
 	cin >> name;
 	if (system.isFanPageExist(name) == false)
 	{
 		FansPage* newFanPage = new FansPage(name);
 		system.addFanPageToSystem(newFanPage);
+		cout << "\nFan page added successfully" << endl;
 	}
 	else
 		cout << "\nThe name already taken, back to menu." << endl;
@@ -151,7 +151,7 @@ void addFanPage(TwittFace& system)
 void addStatus(TwittFace& system)
 {
 	char answer;
-	cout << "\nPlease select to who you want to add new status: (U-user / F-fan page) ";
+	cout << "Please select to who you want to add new status: (U-user / F-fan page) ";
 	cin >> answer;
 	if (answer == 'U')
 		addStatusToUser(system);
@@ -176,6 +176,7 @@ void addStatusToUser(TwittFace& system)
 		cin.getline(statusData, 500);
 		Status* newstatus = new Status(statusData);
 		system.getUserbyName(userName).addStatus(newstatus);
+		cout << "\nUser status added successfully" << endl;
 	}
 	else
 		cout << "\nThe name does not exist at the system, back to menu." << endl;
@@ -196,6 +197,7 @@ void addStatuesToFanPage(TwittFace& system)
 		cin.getline(statusData, 500);
 		Status* newstatus = new Status(statusData);
 		system.getFanPagebyName(fanPageName).addStatus(newstatus);
+		cout << "\nFan page status added successfully" << endl;
 	}
 	else
 		cout << "\nThe name does not exist at the system, back to menu." << endl;
@@ -215,7 +217,7 @@ void cleanBuffer()
 void printAllStatuses(TwittFace& system)
 {
 	char answer;
-	cout << "\nPlease select to who you want to show all the statuses: (U-user / F-fan page) ";
+	cout << "Please select to who you want to show all the statuses: (U-user / F-fan page) ";
 	cin >> answer;
 	if (answer == 'U')
 		printAllUserStatuses(system);
@@ -250,6 +252,7 @@ void printAllFanPageStatuses(TwittFace& system)
 
 	if (system.isFanPageExist(fanPageName) == true)
 	{
+		cout << "\nAll the fan page statuses are:" << endl;
 		system.getFanPagebyName(fanPageName).printAllStatuses();
 	}
 	else
@@ -260,7 +263,7 @@ void printAllFanPageStatuses(TwittFace& system)
 void printTenMostRecentFriendsStatuses(TwittFace& system)
 {
 	char userName[maxName];
-	cout << "\nPlease enter the name of the user: ";
+	cout << "Please enter the name of the user: ";
 	cin >> userName;
 
 	if (system.isUserExist(userName) == true)
@@ -268,7 +271,8 @@ void printTenMostRecentFriendsStatuses(TwittFace& system)
 		User& curUser = system.getUserbyName(userName);
 		for (int i = 0; i < curUser.getFriendsLogic(); i++)
 		{
-			(curUser.getFriends()[i])->printTenLastStatusOfTheUser();
+			cout << "\nThe most recent statuses of " << curUser.getFriends()[i]->getName() << " are:" << endl;
+			curUser.getFriends()[i]->printTenLastStatusOfTheUser();
 		}
 	}
 	else
@@ -282,7 +286,7 @@ void connectUsers(TwittFace& system)
 	
 	cout << "Please enter the name of the first user: ";
 	cin >> name1;
-	cout << "Please enter the name of the second user: ";
+	cout << "\nPlease enter the name of the second user: ";
 	cin >> name2;
 	if (system.isUserExist(name1) == true && system.isUserExist(name2) == true)
 	{
@@ -292,6 +296,7 @@ void connectUsers(TwittFace& system)
 		{
 			User& user2 = system.getUserbyName(name2);
 			user1.addFriend(&user2);
+			cout << "\nThe connection added successfully" << endl;
 		}
 		else
 			cout << "\nYou entered two users that already friends" << endl;
@@ -307,7 +312,7 @@ void seperateUsers(TwittFace& system)
 
 	cout << "Please enter the name of the first user: ";
 	cin >> name1;
-	cout << "Please enter the name of the second user: ";
+	cout << "\nPlease enter the name of the second user: ";
 	cin >> name2;
 	if (system.isUserExist(name1) == true && system.isUserExist(name2) == true)
 	{
@@ -317,6 +322,7 @@ void seperateUsers(TwittFace& system)
 		{
 			User& user2 = system.getUserbyName(name2);
 			user1.removeFriend(&user2);
+			cout << "\nThe seperate happened, the two users no more friends" << endl;
 		}
 		else
 			cout << "\nYou entered two users that not friends" << endl;
@@ -329,7 +335,7 @@ void seperateUsers(TwittFace& system)
 void addFanToFanPage(TwittFace& system)
 {
 	char fanPageName[maxName], newfanName[maxName];
-	cout << "\nPlease enter the name of the fan page: ";
+	cout << "Please enter the name of the fan page: ";
 	cin >> fanPageName;
 
 	if (system.isFanPageExist(fanPageName) == true)
@@ -344,6 +350,7 @@ void addFanToFanPage(TwittFace& system)
 			if (curfanPage.checkIfFan(&newfan) == false)
 			{
 				curfanPage.addFan(&newfan);
+				cout << "\nThe user is a fan of the fan page now" << endl;
 			}
 			else
 				cout << "\nThe user already a fan of this fan page, back to menu." << endl;
@@ -359,7 +366,7 @@ void addFanToFanPage(TwittFace& system)
 void removeFanFromFanPage(TwittFace& system)
 {
 	char fanPageName[maxName], oldfanName[maxName];
-	cout << "\nPlease enter the name of the fan page: ";
+	cout << "Please enter the name of the fan page: ";
 	cin >> fanPageName;
 
 	if (system.isFanPageExist(fanPageName) == true)
@@ -374,6 +381,7 @@ void removeFanFromFanPage(TwittFace& system)
 			if (curfanPage.checkIfFan(&oldfan) == true)
 			{
 				curfanPage.removeFan(&oldfan);
+				cout << "\nThe user no more fan of the fan page" << endl;
 			}
 			else
 				cout << "\nThe user already not a fan of this fan page, back to menu." << endl;
@@ -389,16 +397,16 @@ void removeFanFromFanPage(TwittFace& system)
 void printAllObjects(TwittFace& system)
 {
 	
-	cout << "\nAll the users at the system are: " << endl;
+	cout << "All the users at the system are: " << endl;
 	for (int i = 0; i < system.getUsersLogic(); i++)
 	{
-		cout << "\n" << (*(system.getAllTheUsers()[i])).getName() << endl;
+		cout << "\n" << system.getAllTheUsers()[i]->getName() << endl;
 	}
 
 	cout << "\nAll the fan pages at the system are: " << endl;
 	for (int j = 0; j < system.getFanPageLogic(); j++) // check that actions
 	{
-		cout << "\n" << (*(system.getAllTheFanPages()[j])).getName() << endl;
+		cout << "\n" << system.getAllTheFanPages()[j]->getName() << endl;
 	}
 }
 
@@ -406,7 +414,7 @@ void printAllObjects(TwittFace& system)
 void showAllFriendsOrFans(TwittFace& system)
 {
 	char answer;
-	cout << "\nPlease select if to show, all the friends of a user/ all the fans of a fan page: (U-user / F-fan page) ";
+	cout << "Please select if to show, all the friends of a user/ all the fans of a fan page: (U-user / F-fan page) ";
 	cin >> answer;
 	if (answer == 'U')
 		showAllFriens(system);
@@ -425,6 +433,7 @@ void showAllFriens(TwittFace& system)
 
 	if (system.isUserExist(userName) == true)
 	{
+		cout << "\nAll the friends of " << userName << " are:\n" << endl;
 		system.getUserbyName(userName).printAllFriends();
 	}
 	else
@@ -440,6 +449,7 @@ void showAllFans(TwittFace& system)
 
 	if (system.isFanPageExist(fanPageName) == true)
 	{
+		cout << "\nAll the fans of " << fanPageName << " are:\n" << endl;
 		system.getFanPagebyName(fanPageName).printAllFans();
 	}
 	else

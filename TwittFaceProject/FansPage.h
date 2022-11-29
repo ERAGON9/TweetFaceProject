@@ -21,13 +21,15 @@ public:
 	FansPage(const char* name);
 	FansPage(const FansPage& other) = delete;
 	~FansPage();
+
 	const char* getName() const { return name; }
+
 	void addStatus(Status* status);
-	void printAllStatuses();
+	void printAllStatuses() const;
 	void addFan(User* newFan);
-	bool checkIfFan(User* fan);
+	const bool checkIfFan(User* fan) const;
 	void removeFan(User* fan);
-	void printAllFans();
+	void printAllFans() const;
 };
 
 #endif // !__FANSPAGE_H

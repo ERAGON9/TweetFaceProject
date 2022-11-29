@@ -39,9 +39,9 @@ User::~User()
 }
 
 
-void User::printTenLastStatusOfTheUser()
+void User::printTenLastStatusOfTheUser() const
 {
-	for (int i = statusCount; (i > statusCount - 10) && (i > 0); i--)
+	for (int i = statusCount-1; (i > (statusCount-1) - 10) && (i >= 0); i--)
 		publishBoard[i]->printStatus();
 }
 
@@ -108,14 +108,14 @@ void User::removeFriend(User* _friend)
 }
 
 
-void User::printAllFriends()
+void User::printAllFriends() const
 {
 	for (int i = 0; i < friendsCount; i++) 
 		cout << friends[i]->getName() << endl;
 }
 
 
-void User::printAllStatuses()
+void User::printAllStatuses() const
 {
 	for (int i = 0; i < statusCount; i++)
 		publishBoard[i]->printStatus();
@@ -166,7 +166,7 @@ void User::removeFansPage(FansPage* page)
 }
 
 
-bool User::checkIfFriend(const char* name)
+const bool User::checkIfFriend(const char* name) const
 {
 	for (int i = 0; i < friendsCount; i++)
 	{
@@ -178,13 +178,20 @@ bool User::checkIfFriend(const char* name)
 }
 
 
-bool User::checkIfFanOfFanPage(FansPage* fanPage)
+const bool User::checkIfFanOfFanPage(FansPage* fanPage) const
 {
 	for (int i = 0; i < pagesCount; i++)
 	{
-		if (pArrFansPages[i] == fanPage)
+		if (pArrFansPages[i]->getName() == fanPage->getName())
 			return true;
 	}
 
 	return false;
+}
+
+
+const void User::printAllFanPages() const
+{
+	for (int i = 0; i < pagesCount; i++)
+		cout << pArrFansPages[i]->getName() << endl;
 }

@@ -31,16 +31,17 @@ public:
 	const char* getName() const { return name; }
 	const int getFriendsLogic() const { return friendsCount; }
     User** getFriends() { return friends; }
-	void printTenLastStatusOfTheUser();
+	void printTenLastStatusOfTheUser() const;
 	void addStatus(Status* status);
 	void addFriend(User* _friend);
 	void removeFriend(User* _friend);
-	void printAllFriends();
-	void printAllStatuses();
+	void printAllFriends() const;
+	void printAllStatuses() const;
 	void addFansPage(FansPage* page);
 	void removeFansPage(FansPage* page);
-	bool checkIfFriend(const char* name);
-	bool checkIfFanOfFanPage(FansPage* fanPage);
+	const bool checkIfFriend(const char* name) const;
+	const bool checkIfFanOfFanPage(FansPage* fanPage) const;
+	const void printAllFanPages() const;
 };
 
 #endif // !__Users_H

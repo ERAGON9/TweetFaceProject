@@ -53,7 +53,7 @@ void FansPage::addStatus(Status* status)
 }
 
 
-void FansPage::printAllStatuses()
+void FansPage::printAllStatuses() const
 {
 	for (int i = 0; i < statusCount; i++)
 		publishBoard[i]->printStatus();
@@ -84,11 +84,11 @@ void FansPage::addFan(User* newFan)
 }
 
 
-bool FansPage::checkIfFan(User* fan)
+const bool FansPage::checkIfFan(User* fan) const
 {
 	for (int i = 0; i < friendsCount; i++)
 	{
-		if (pArrFans[i] == fan)
+		if (pArrFans[i]->getName() == fan->getName())
 			return true;
 	}
 
@@ -116,7 +116,7 @@ void FansPage::removeFan(User* fan)
 }
 
 
-void FansPage::printAllFans()
+void FansPage::printAllFans() const
 {
 	for (int i = 0; i < friendsCount; i++)
 		cout << pArrFans[i]->getName() << endl;
