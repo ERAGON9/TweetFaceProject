@@ -31,6 +31,7 @@ public:
 	const char* getName() const { return name; }
 	const int getFriendsLogic() const { return friendsCount; }
     User** getFriends() { return friends; }
+
 	void printTenLastStatusOfTheUser() const;
 	void addStatus(Status* status);
 	void addFriend(User* _friend);
@@ -41,7 +42,8 @@ public:
 	void removeFansPage(FansPage* page);
 	const bool checkIfFriend(const char* name) const;
 	const bool checkIfFanOfFanPage(FansPage* fanPage) const;
-	const void printAllFanPages() const;
+	void printAllFanPages() const;
+	void printUser() const;
 };
 
 #endif // !__Users_H

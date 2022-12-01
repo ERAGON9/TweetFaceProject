@@ -30,6 +30,7 @@ public:
 	const bool checkIfFan(User* fan) const;
 	void removeFan(User* fan);
 	void printAllFans() const;
+	void printFanPage() const;
 };
 
 #endif // !__FANSPAGE_H

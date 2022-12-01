@@ -111,7 +111,7 @@ void User::removeFriend(User* _friend)
 void User::printAllFriends() const
 {
 	for (int i = 0; i < friendsCount; i++) 
-		cout << friends[i]->getName() << endl;
+		friends[i]->printUser();
 }
 
 
@@ -190,8 +190,16 @@ const bool User::checkIfFanOfFanPage(FansPage* fanPage) const
 }
 
 
-const void User::printAllFanPages() const
+void User::printAllFanPages() const
 {
 	for (int i = 0; i < pagesCount; i++)
-		cout << pArrFansPages[i]->getName() << endl;
+		pArrFansPages[i]->printFanPage();
+}
+
+
+void User::printUser() const
+{
+	cout << "\nUser Name is: " << name << endl
+		<< "Birth day is: " << (bDay.getDay() < 10 ? "0" : "") << bDay.getDay() << " / "
+		<< (bDay.getmonth() < 10 ? "0" : "") << bDay.getmonth() << " / " << bDay.getYear() << endl;
 }

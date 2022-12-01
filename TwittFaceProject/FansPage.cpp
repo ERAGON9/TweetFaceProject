@@ -119,5 +119,10 @@ void FansPage::removeFan(User* fan)
 void FansPage::printAllFans() const
 {
 	for (int i = 0; i < friendsCount; i++)
-		cout << pArrFans[i]->getName() << endl;
+		pArrFans[i]->printUser();
+}
+
+void FansPage::printFanPage() const
+{
+	cout << "\nThe fan page name is: " << name << endl;
 }
