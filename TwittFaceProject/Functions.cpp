@@ -69,7 +69,7 @@ void printMenu()
 		<< "Your choice: ";
 }
 
-void action(int& value, TwittFace& system)
+void action(int value, TwittFace& system)
 {
 	switch (value)
 	{
@@ -273,7 +273,7 @@ void printTenMostRecentFriendsStatuses(TwittFace& system)
 	if (system.isUserExist(userName) == true)
 	{
 		User& curUser = system.getUserbyName(userName);
-		for (int i = 0; i < curUser.getFriendsLogic(); i++)
+		for (int i = 0; i < curUser.getNumOfFriends(); i++)
 		{
 			cout << "\nThe most recent statuses of " << curUser.getFriends()[i]->getName() << " are:" << endl;
 			curUser.getFriends()[i]->printTenLastStatusOfTheUser();
@@ -415,13 +415,13 @@ void removeFanFromFanPage(TwittFace& system)
 void printAllObjects(TwittFace& system)
 {
 	cout << "All the users at the system are: " << endl;
-	for (int i = 0; i < system.getUsersLogic(); i++)
+	for (int i = 0; i < system.getNumOfUsers(); i++)
 	{
 		system.getAllTheUsers()[i]->printUser();
 	}
 
 	cout << "\nAll the fan pages at the system are: " << endl;
-	for (int j = 0; j < system.getFanPageLogic(); j++) // check that actions
+	for (int j = 0; j < system.getNumOfFanPages(); j++) // check that actions
 	{
 		system.getAllTheFanPages()[j]->printFanPage();
 	}

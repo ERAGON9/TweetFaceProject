@@ -29,7 +29,7 @@ public:
 	~User();
 
 	const char* getName() const { return name; }
-	const int getFriendsLogic() const { return friendsCount; }
+	const int getNumOfFriends() const { return friendsCount; }
     User** getFriends() { return friends; }
 
 	void printTenLastStatusOfTheUser() const;
@@ -40,8 +40,8 @@ public:
 	void printAllStatuses() const;
 	void addFansPage(FansPage* page);
 	void removeFansPage(FansPage* page);
-	const bool checkIfFriend(const char* name) const;
-	const bool checkIfFanOfFanPage(FansPage* fanPage) const;
+	bool checkIfFriend(const char* name) const;
+	bool checkIfFanOfFanPage(FansPage* fanPage) const;
 	void printAllFanPages() const;
 	void printUser() const;
 };

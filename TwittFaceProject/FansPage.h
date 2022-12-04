@@ -27,7 +27,7 @@ public:
 	void addStatus(Status* status);
 	void printAllStatuses() const;
 	void addFan(User* newFan);
-	const bool checkIfFan(User* fan) const;
+	bool checkIfFan(User* fan) const;
 	void removeFan(User* fan);
 	void printAllFans() const;
 	void printFanPage() const;

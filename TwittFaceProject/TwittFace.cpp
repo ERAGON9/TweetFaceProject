@@ -63,7 +63,7 @@ void TwittFace::addFanPageToSystem(FansPage* newFanPage)
 }
 
 
-const bool TwittFace::isUserExist(const char* userName) const
+bool TwittFace::isUserExist(const char* userName) const
 {
 	for (int i = 0; i < usersLogic; i++)
 	{
@@ -85,7 +85,7 @@ User& TwittFace::getUserbyName(const char* userName)
 }
 
 
-const bool TwittFace::isFanPageExist(const char* fanPageName) const
+bool TwittFace::isFanPageExist(const char* fanPageName) const
 {
 	for (int i = 0; i < fanPagesLogic; i++)
 	{

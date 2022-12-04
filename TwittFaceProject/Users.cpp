@@ -166,7 +166,7 @@ void User::removeFansPage(FansPage* page)
 }
 
 
-const bool User::checkIfFriend(const char* name) const
+bool User::checkIfFriend(const char* name) const
 {
 	for (int i = 0; i < friendsCount; i++)
 	{
@@ -178,7 +178,7 @@ const bool User::checkIfFriend(const char* name) const
 }
 
 
-const bool User::checkIfFanOfFanPage(FansPage* fanPage) const
+bool User::checkIfFanOfFanPage(FansPage* fanPage) const
 {
 	for (int i = 0; i < pagesCount; i++)
 	{

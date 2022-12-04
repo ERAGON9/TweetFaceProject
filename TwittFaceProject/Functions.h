@@ -6,7 +6,7 @@ class User;
 
 void initHardCodedData(TwittFace& system);
 void printMenu();
-void action(int& value, TwittFace& system);
+void action(int value, TwittFace& system);
 void addUser(TwittFace& system);
 void addFanPage(TwittFace& system);
 void addStatus(TwittFace& system);
