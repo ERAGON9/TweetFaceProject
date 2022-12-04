@@ -24,11 +24,11 @@ public:
 
 	const char* getName() const { return name; }
 
-	void addStatus(Status* status);
+	void addStatus(Status& status);
 	void printAllStatuses() const;
-	void addFan(User* newFan);
-	bool checkIfFan(User* fan) const;
-	void removeFan(User* fan);
+	void addFan(User& newFan);
+	bool checkIfFan(User& fan) const;
+	void removeFan(User& fan);
 	void printAllFans() const;
 	void printFanPage() const;
 };

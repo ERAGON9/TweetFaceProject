@@ -25,8 +25,8 @@ public:
 	User** getAllTheUsers() { return allTheUsers; }
 	FansPage** getAllTheFanPages() { return allTheFanPages; }
 
-	void addUserToSystem(User* newUser);
-	void addFanPageToSystem(FansPage* newFanPage);
+	void addUserToSystem(User& newUser);
+	void addFanPageToSystem(FansPage& newFanPage);
 	bool isUserExist(const char* userName) const;
 	User& getUserbyName(const char* userName);
 	bool isFanPageExist(const char* fanPageName) const;

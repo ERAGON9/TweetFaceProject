@@ -25,7 +25,7 @@ TwittFace::~TwittFace()
 }
 
 
-void TwittFace::addUserToSystem(User* newUser)
+void TwittFace::addUserToSystem(User& newUser)
 {
 	if (usersLogic == userPhysic)
 	{
@@ -39,12 +39,12 @@ void TwittFace::addUserToSystem(User* newUser)
 		allTheUsers = tmp;
 	}
 
-	allTheUsers[usersLogic] = newUser;
+	allTheUsers[usersLogic] = &newUser;
 	usersLogic++;
 }
 
 
-void TwittFace::addFanPageToSystem(FansPage* newFanPage)
+void TwittFace::addFanPageToSystem(FansPage& newFanPage)
 {
 	if (fanPagesLogic == fansPagesPhysic)
 	{
@@ -58,7 +58,7 @@ void TwittFace::addFanPageToSystem(FansPage* newFanPage)
 		allTheFanPages = tmp;
 	}
 
-	allTheFanPages[fanPagesLogic] = newFanPage;
+	allTheFanPages[fanPagesLogic] = &newFanPage;
 	fanPagesLogic++;
 }
 

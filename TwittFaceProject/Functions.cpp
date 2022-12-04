@@ -23,31 +23,31 @@ void initHardCodedData(TwittFace& system)
 	FansPage* shalevFP = new FansPage("Shalev Business");
 	FansPage* noaFP = new FansPage("Noa Business");
 
-	system.addUserToSystem(lior);
-	system.addUserToSystem(shalev);
-	system.addUserToSystem(noa);
-	system.addFanPageToSystem(liorFP);
-	system.addFanPageToSystem(shalevFP);
-	system.addFanPageToSystem(noaFP);
+	system.addUserToSystem(*lior);
+	system.addUserToSystem(*shalev);
+	system.addUserToSystem(*noa);
+	system.addFanPageToSystem(*liorFP);
+	system.addFanPageToSystem(*shalevFP);
+	system.addFanPageToSystem(*noaFP);
 
-	lior->addStatus(new Status("Lior Barak First status"));
-	lior->addStatus(new Status("Lior Barak Second status"));
-	shalev->addStatus(new Status("Shalev Kedar First status"));
-	shalev->addStatus(new Status("Shalev Kedar Second status"));
-	noa->addStatus(new Status("Noa Margolius First status"));
-	noa->addStatus(new Status("Noa Margolius Second status"));
-	liorFP->addStatus(new Status("Lior Business First status"));
-	liorFP->addStatus(new Status("Lior Business Second status"));
-	shalevFP->addStatus(new Status("Shalev BusinessFirst status"));
-	shalevFP->addStatus(new Status("Shalev Business Second status"));
-	noaFP->addStatus(new Status("Noa Business First status"));
-	noaFP->addStatus(new Status("Noa Business Second status"));
+	lior->addStatus(*new Status("Lior Barak First status"));
+	lior->addStatus(*new Status("Lior Barak Second status"));
+	shalev->addStatus(*new Status("Shalev Kedar First status"));
+	shalev->addStatus(*new Status("Shalev Kedar Second status"));
+	noa->addStatus(*new Status("Noa Margolius First status"));
+	noa->addStatus(*new Status("Noa Margolius Second status"));
+	liorFP->addStatus(*new Status("Lior Business First status"));
+	liorFP->addStatus(*new Status("Lior Business Second status"));
+	shalevFP->addStatus(*new Status("Shalev BusinessFirst status"));
+	shalevFP->addStatus(*new Status("Shalev Business Second status"));
+	noaFP->addStatus(*new Status("Noa Business First status"));
+	noaFP->addStatus(*new Status("Noa Business Second status"));
 
-	shalev->addFriend(lior);
-	lior->addFriend(noa);
-	shalev->addFansPage(shalevFP);
-	lior->addFansPage(liorFP);
-	noa->addFansPage(noaFP);
+	shalev->addFriend(*lior);
+	lior->addFriend(*noa);
+	shalev->addFansPage(*shalevFP);
+	lior->addFansPage(*liorFP);
+	noa->addFansPage(*noaFP);
 }
 
 
@@ -124,7 +124,7 @@ void addUser(TwittFace& system)
 		cout << "\nPlease enter your birth day (day (space/enter)  month (space/enter) year ): ";
 		cin >> day >> month >> year;
 		User* newUser = new User(userName, day, month, year);
-		system.addUserToSystem(newUser);
+		system.addUserToSystem(*newUser);
 		cout << "\nUser added successfully" << endl;
 	}
 	else
@@ -151,7 +151,7 @@ void addFanPage(TwittFace& system)
 	if (system.isFanPageExist(fanPageName) == false)
 	{
 		FansPage* newFanPage = new FansPage(fanPageName);
-		system.addFanPageToSystem(newFanPage);
+		system.addFanPageToSystem(*newFanPage);
 		cout << "\nFan page added successfully" << endl;
 	}
 	else
@@ -186,7 +186,7 @@ void addStatusToUser(TwittFace& system)
 		cout << "\nPlease enter the new status (no more than 500 characters): ";
 		cin.getline(statusData, maxStatus);
 		Status* newstatus = new Status(statusData);
-		system.getUserbyName(userName).addStatus(newstatus);
+		system.getUserbyName(userName).addStatus(*newstatus);
 		cout << "\nUser status added successfully" << endl;
 	}
 	else
@@ -207,7 +207,7 @@ void addStatuesToFanPage(TwittFace& system)
 		cout << "\nPlease enter the new status (no more than 500 characters): ";
 		cin.getline(statusData, maxStatus);
 		Status* newstatus = new Status(statusData);
-		system.getFanPagebyName(fanPageName).addStatus(newstatus);
+		system.getFanPagebyName(fanPageName).addStatus(*newstatus);
 		cout << "\nFan page status added successfully" << endl;
 	}
 	else
@@ -302,7 +302,7 @@ void connectUsers(TwittFace& system)
 			if (user1.checkIfFriend(name2) == false)
 			{
 				User& user2 = system.getUserbyName(name2);
-				user1.addFriend(&user2);
+				user1.addFriend(user2);
 				cout << "\nThe connection added successfully" << endl;
 			}
 			else
@@ -334,7 +334,7 @@ void seperateUsers(TwittFace& system)
 			if (user1.checkIfFriend(name2) == true)
 			{
 				User& user2 = system.getUserbyName(name2);
-				user1.removeFriend(&user2);
+				user1.removeFriend(user2);
 				cout << "\nThe seperate happened, the two users no more friends" << endl;
 			}
 			else
@@ -364,9 +364,9 @@ void addFanToFanPage(TwittFace& system)
 		{
 			FansPage& curfanPage = system.getFanPagebyName(fanPageName);
 			User& newfan = system.getUserbyName(newfanName);
-			if (curfanPage.checkIfFan(&newfan) == false)
+			if (curfanPage.checkIfFan(newfan) == false)
 			{
-				curfanPage.addFan(&newfan);
+				curfanPage.addFan(newfan);
 				cout << "\nThe user is a fan of the fan page now" << endl;
 			}
 			else
@@ -396,9 +396,9 @@ void removeFanFromFanPage(TwittFace& system)
 		{
 			FansPage& curfanPage = system.getFanPagebyName(fanPageName);
 			User& oldfan = system.getUserbyName(oldfanName);
-			if (curfanPage.checkIfFan(&oldfan) == true)
+			if (curfanPage.checkIfFan(oldfan) == true)
 			{
-				curfanPage.removeFan(&oldfan);
+				curfanPage.removeFan(oldfan);
 				cout << "\nThe user no more fan of the fan page" << endl;
 			}
 			else

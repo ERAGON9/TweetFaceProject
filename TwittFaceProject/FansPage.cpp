@@ -34,7 +34,7 @@ FansPage::~FansPage()
 }
 
 
-void FansPage::addStatus(Status* status)
+void FansPage::addStatus(Status& status)
 {
 	if (statusCount == statusPhysic)
 	{
@@ -48,7 +48,7 @@ void FansPage::addStatus(Status* status)
 		publishBoard = tmp;
 	}
 
-	publishBoard[statusCount] = status;
+	publishBoard[statusCount] = &status;
 	statusCount++;
 }
 
@@ -60,7 +60,7 @@ void FansPage::printAllStatuses() const
 }
 
 
-void FansPage::addFan(User* newFan)
+void FansPage::addFan(User& newFan)
 {
 	if (checkIfFan(newFan) == false)
 	{
@@ -76,19 +76,19 @@ void FansPage::addFan(User* newFan)
 			pArrFans = tmp;
 		}
 
-		pArrFans[friendsCount] = newFan;
+		pArrFans[friendsCount] = &newFan;
 		friendsCount++;
 
-		newFan->addFansPage(this);
+		newFan.addFansPage(*this);
 	}
 }
 
 
-bool FansPage::checkIfFan(User* fan) const
+bool FansPage::checkIfFan(User& fan) const
 {
 	for (int i = 0; i < friendsCount; i++)
 	{
-		if (pArrFans[i]->getName() == fan->getName())
+		if (pArrFans[i]->getName() == fan.getName())
 			return true;
 	}
 
@@ -96,13 +96,13 @@ bool FansPage::checkIfFan(User* fan) const
 }
 
 
-void FansPage::removeFan(User* fan)
+void FansPage::removeFan(User& fan)
 {
 	if (checkIfFan(fan) == true)
 	{
 		for (int i = 0; i < friendsCount; i++)
 		{
-			if (pArrFans[i] == fan)
+			if (pArrFans[i] == &fan)
 			{
 				if (i != friendsCount - 1)
 					pArrFans[i] = pArrFans[friendsCount - 1];
@@ -111,7 +111,7 @@ void FansPage::removeFan(User* fan)
 				friendsCount--;
 			}
 		}
-		fan->removeFansPage(this);
+		fan.removeFansPage(*this);
 	}
 }
 

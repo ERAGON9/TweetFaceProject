@@ -46,7 +46,7 @@ void User::printTenLastStatusOfTheUser() const
 }
 
 
-void User::addStatus(Status* tweet)
+void User::addStatus(Status& tweet)
 {
 	if (statusCount == statusPhysic) 
 	{
@@ -60,14 +60,14 @@ void User::addStatus(Status* tweet)
 		publishBoard = tmp;
 	}
 
-	publishBoard[statusCount] = tweet;
+	publishBoard[statusCount] = &tweet;
 	statusCount++;
 }
 
 
-void User::addFriend(User* _friend)
+void User::addFriend(User& _friend)
 {
-	if (checkIfFriend(_friend->getName()) == false)
+	if (checkIfFriend(_friend.getName()) == false)
 	{
 		if (friendsCount == friendsPhysic)
 		{
@@ -80,21 +80,21 @@ void User::addFriend(User* _friend)
 			delete[]friends;
 			friends = tmp;
 		}
-		friends[friendsCount] = _friend;
+		friends[friendsCount] = &_friend;
 		friendsCount++;
 
-		_friend->addFriend(this);
+		_friend.addFriend(*this);
 	}
 }
 
 
-void User::removeFriend(User* _friend)
+void User::removeFriend(User& _friend)
 {
-	if (checkIfFriend(_friend->getName()) == true)
+	if (checkIfFriend(_friend.getName()) == true)
 	{
 		for (int i = 0; i < friendsCount; i++)
 		{
-			if (friends[i] == _friend)
+			if (friends[i] == &_friend)
 			{
 				if (i != friendsCount - 1)
 					friends[i] = friends[friendsCount - 1];
@@ -103,7 +103,7 @@ void User::removeFriend(User* _friend)
 				friendsCount--;
 			}
 		}
-		_friend->removeFriend(this);
+		_friend.removeFriend(*this);
 	}
 }
 
@@ -122,7 +122,7 @@ void User::printAllStatuses() const
 }
 
 
-void User::addFansPage(FansPage* fanPage)
+void User::addFansPage(FansPage& fanPage)
 {
 	if (checkIfFanOfFanPage(fanPage) == false)
 	{
@@ -138,21 +138,21 @@ void User::addFansPage(FansPage* fanPage)
 			pArrFansPages = tmp;
 		}
 
-		pArrFansPages[pagesCount] = fanPage;
+		pArrFansPages[pagesCount] = &fanPage;
 		pagesCount++;
 
-		fanPage->addFan(this);
+		fanPage.addFan(*this);
 	}
 }
 
 
-void User::removeFansPage(FansPage* page) 
+void User::removeFansPage(FansPage& page)
 {
 	if (checkIfFanOfFanPage(page) == true)
 	{
 		for (int i = 0; i < pagesCount; i++)
 		{
-			if (pArrFansPages[i] == page)
+			if (pArrFansPages[i] == &page)
 			{
 				if (i != pagesCount - 1)
 					pArrFansPages[i] = pArrFansPages[pagesCount - 1];
@@ -161,7 +161,7 @@ void User::removeFansPage(FansPage* page)
 				pagesCount--;
 			}
 		}
-		page->removeFan(this);
+		page.removeFan(*this);
 	}
 }
 
@@ -178,11 +178,11 @@ bool User::checkIfFriend(const char* name) const
 }
 
 
-bool User::checkIfFanOfFanPage(FansPage* fanPage) const
+bool User::checkIfFanOfFanPage(FansPage& fanPage) const
 {
 	for (int i = 0; i < pagesCount; i++)
 	{
-		if (pArrFansPages[i]->getName() == fanPage->getName())
+		if (pArrFansPages[i]->getName() == fanPage.getName())
 			return true;
 	}
 

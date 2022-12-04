@@ -33,15 +33,15 @@ public:
     User** getFriends() { return friends; }
 
 	void printTenLastStatusOfTheUser() const;
-	void addStatus(Status* status);
-	void addFriend(User* _friend);
-	void removeFriend(User* _friend);
+	void addStatus(Status& status);
+	void addFriend(User& _friend);
+	void removeFriend(User& _friend);
 	void printAllFriends() const;
 	void printAllStatuses() const;
-	void addFansPage(FansPage* page);
-	void removeFansPage(FansPage* page);
+	void addFansPage(FansPage& page);
+	void removeFansPage(FansPage& page);
 	bool checkIfFriend(const char* name) const;
-	bool checkIfFanOfFanPage(FansPage* fanPage) const;
+	bool checkIfFanOfFanPage(FansPage& fanPage) const;
 	void printAllFanPages() const;
 	void printUser() const;
 };
