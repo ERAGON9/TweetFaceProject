@@ -41,7 +41,7 @@ public:
 	void addFansPage(FansPage& page);
 	void removeFansPage(FansPage& page);
 	bool checkIfFriend(const char* name) const;
-	bool checkIfFanOfFanPage(FansPage& fanPage) const;
+	bool checkIfFanOfFanPage(const FansPage& fanPage) const;
 	void printAllFanPages() const;
 	void printUser() const;
 };

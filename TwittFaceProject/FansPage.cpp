@@ -84,7 +84,7 @@ void FansPage::addFan(User& newFan)
 }
 
 
-bool FansPage::checkIfFan(User& fan) const
+bool FansPage::checkIfFan(const User& fan) const
 {
 	for (int i = 0; i < friendsCount; i++)
 	{

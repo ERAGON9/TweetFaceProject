@@ -178,7 +178,7 @@ bool User::checkIfFriend(const char* name) const
 }
 
 
-bool User::checkIfFanOfFanPage(FansPage& fanPage) const
+bool User::checkIfFanOfFanPage(const FansPage& fanPage) const
 {
 	for (int i = 0; i < pagesCount; i++)
 	{
